@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ubuntu Supply Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/home/logo.png" alt="Ubuntu Supply Solutions Logo" class="logo-image">
+                    <span class="logo-text">Ubuntu Supply Solutions</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link active">Products</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-quote-btn">Get a Quote</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Catalog Header -->
+    <section class="catalog-header">
+        <div class="container">
+            <div class="catalog-header-dot"></div>
+            <h1 class="catalog-title">Product Catalog</h1>
+            <p class="catalog-description">Discover our comprehensive range of medical consumables and precision devices. High quality, certified, and ready for deployment.</p>
+            
+            <div class="catalog-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="catalogSearch" placeholder="Search by product name, SKU, or category...">
+                <button class="catalog-search-btn">Search</button>
+            </div>
+
+            <div class="catalog-popular-tags">
+                <span class="tag-label">Popular:</span>
+                <button class="popular-tag" data-search="wheelchair">Wheelchairs</button>
+                <button class="popular-tag" data-search="walking">Walking Aids</button>
+                <button class="popular-tag" data-search="bed">Hospital Beds</button>
+                <button class="popular-tag" data-search="diagnostic">Diagnostic</button>
+                <button class="popular-tag" data-search="respiratory">Respiratory</button>
+            </div>
+
+            <a href="images/home/SUS%20Catalogy.pdf" download class="download-catalogue-btn">
+                <i class="fas fa-file-pdf"></i> Download Full Catalogue (PDF)
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Main Section -->
+    <section class="catalog-main">
+        <div class="container">
+            <div class="catalog-layout">
+                <!-- Sidebar -->
+                <aside class="catalog-sidebar">
+                    <h3 class="sidebar-title"><i class="fas fa-filter"></i> Refine Search</h3>
+
+                    <div class="filter-group">
+                        <h4 class="filter-heading">Categories <i class="fas fa-chevron-down"></i></h4>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="wheelchairs"> Wheelchairs <span class="filter-count">7</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="walking-aids"> Walking Aids <span class="filter-count">8</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="hospital-beds"> Hospital Beds <span class="filter-count">6</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="stretchers"> Stretchers <span class="filter-count">4</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="diagnostic"> Diagnostic <span class="filter-count">6</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="respiratory"> Respiratory <span class="filter-count">2</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="bathroom"> Bathroom Aids <span class="filter-count">4</span></label>
+                        <label class="filter-checkbox"><input type="checkbox" data-category="equipment"> Equipment <span class="filter-count">8</span></label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4 class="filter-heading">Availability <i class="fas fa-chevron-down"></i></h4>
+                        <label class="filter-checkbox"><input type="checkbox" checked> In Stock Only</label>
+                        <label class="filter-checkbox"><input type="checkbox"> Bulk Supply</label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4 class="filter-heading">Certifications <i class="fas fa-chevron-down"></i></h4>
+                    </div>
+
+                    <div class="sidebar-cta">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Bulk Order Assistance</h4>
+                        <p>Need large quantities for a clinic or hospital? Contact our dedicated procurement team for special pricing.</p>
+                        <a href="contact.html" class="sidebar-cta-btn">Contact Procurement</a>
+                    </div>
+                </aside>
+
+                <!-- Products Area -->
+                <div class="catalog-products">
+                    <div class="catalog-toolbar">
+                        <p class="results-count">Showing <span class="count-number" id="resultCount">45</span> results for "<span id="searchTerm">All Supplies</span>"</p>
+                        <div class="sort-control">
+                            <label>Sort by:</label>
+                            <select id="sortBy">
+                                <option>Newest Arrivals</option>
+                                <option>Name A-Z</option>
+                                <option>Name Z-A</option>
+                                <option>Category</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="catalog-grid" id="catalogGrid">
+                        <!-- Wheelchairs -->
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/standard-wheelchair47cm .jpeg" alt="Standard Wheelchair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Standard Wheelchair 47cm</h3>
+                                <p>Reliable standard wheelchair with 47cm seat width for everyday mobility.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/padded-wheelchair.jpeg" alt="Padded Wheelchair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Padded Wheelchair</h3>
+                                <p>Comfortable padded wheelchair with cushioned seat and backrest.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/heavy-duty-wheelchair.jpeg" alt="Heavy Duty Wheelchair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Heavy Duty Wheelchair</h3>
+                                <p>Reinforced wheelchair for bariatric patients with extra support.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/highback-wheelchair-commode&recliner.jpeg" alt="Highback Wheelchair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Highback Wheelchair Commode & Recliner</h3>
+                                <p>Multi-functional with commode and reclining features.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/highback-wheelchair-reciliner$commode.jpeg" alt="Highback Recliner">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Highback Recliner & Commode</h3>
+                                <p>Premium highback with full reclining capability.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/cp-wheelchair-4kids.jpeg" alt="CP Wheelchair for Kids">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>CP Wheelchair for Kids</h3>
+                                <p>Specialized cerebral palsy wheelchair for children.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="wheelchairs">
+                            <div class="catalog-card-image">
+                                <img src="images/products/standard-kidwheelchair.jpeg" alt="Standard Kids Wheelchair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WHEELCHAIRS</span>
+                                </div>
+                                <h3>Standard Kids Wheelchair</h3>
+                                <p>Lightweight wheelchair sized for children.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Walking Aids -->
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/Walker-1.9m.jpeg" alt="Walker">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Walker 1.9m</h3>
+                                <p>Sturdy aluminum walker for stable support.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/rollator-wheels-with seat.jpeg" alt="Rollator with Seat">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Rollator with Wheels & Seat</h3>
+                                <p>Four-wheeled rollator with built-in seat.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/underarm-crutches.jpeg" alt="Underarm Crutches">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Underarm Crutches</h3>
+                                <p>Adjustable underarm crutches for mobility support.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/open-elbow-crutches.jpeg" alt="Open Elbow Crutches">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Open Elbow Crutches</h3>
+                                <p>Ergonomic elbow crutches with open cuff design.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/closed-elbow-clutches.jpeg" alt="Closed Elbow Crutches">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Closed Elbow Crutches</h3>
+                                <p>Secure closed cuff elbow crutches.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/walking-cane-aluminium.jpeg" alt="Walking Cane">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Walking Cane - Aluminum</h3>
+                                <p>Lightweight adjustable aluminum walking cane.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/foldable-cane-aluminum.jpeg" alt="Foldable Cane">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Foldable Cane - Aluminum</h3>
+                                <p>Portable foldable cane, perfect for travel.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="walking-aids">
+                            <div class="catalog-card-image">
+                                <img src="images/products/walking-rail.jpg" alt="Walking Rail">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">WALKING AIDS</span>
+                                </div>
+                                <h3>Walking Rail</h3>
+                                <p>Safety walking rail for home installation.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Hospital Beds -->
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/2crank-bed.jpeg" alt="2 Crank Hospital Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>2 Crank Hospital Bed</h3>
+                                <p>Manual hospital bed with 2 crank adjustments.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/electric3-crank-bed.jpeg" alt="Electric 3 Crank Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>Electric 3 Crank Bed</h3>
+                                <p>Electric hospital bed with 3-way adjustment.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/3functions-electricbed.jpeg" alt="3 Functions Electric Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>3 Functions Electric Bed</h3>
+                                <p>Multi-function electric hospital bed.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/electric-delivery-bed.jpeg" alt="Electric Delivery Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>Electric Delivery Bed</h3>
+                                <p>Electric delivery bed for maternity care.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/electric-delivery-beds-multifunction.jpeg" alt="Multifunction Delivery Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>Multifunction Electric Delivery Bed</h3>
+                                <p>Advanced multifunction delivery bed.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="hospital-beds">
+                            <div class="catalog-card-image">
+                                <img src="images/products/portable-message-bed.jpeg" alt="Portable Massage Bed">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">HOSPITAL BEDS</span>
+                                </div>
+                                <h3>Portable Massage Bed</h3>
+                                <p>Portable foldable massage therapy bed.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Stretchers -->
+                        <div class="catalog-card" data-category="stretchers">
+                            <div class="catalog-card-image">
+                                <img src="images/products/ambulance-manual-stretcher.jpeg" alt="Manual Stretcher">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">STRETCHERS</span>
+                                </div>
+                                <h3>Ambulance Manual Stretcher</h3>
+                                <p>Manual stretcher for ambulance transport.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="stretchers">
+                            <div class="catalog-card-image">
+                                <img src="images/products/ambulance-self-loading-stretchebed.jpeg" alt="Self Loading Stretcher">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">STRETCHERS</span>
+                                </div>
+                                <h3>Self-Loading Stretcher Bed</h3>
+                                <p>Automatic self-loading ambulance stretcher.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="stretchers">
+                            <div class="catalog-card-image">
+                                <img src="images/products/hydraulic-stretcher.jpeg" alt="Hydraulic Stretcher">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">STRETCHERS</span>
+                                </div>
+                                <h3>Hydraulic Stretcher</h3>
+                                <p>Height-adjustable hydraulic stretcher.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="stretchers">
+                            <div class="catalog-card-image">
+                                <img src="images/products/manual-emergency-stretcher.jpeg" alt="Emergency Stretcher">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">STRETCHERS</span>
+                                </div>
+                                <h3>Manual Emergency Stretcher</h3>
+                                <p>Lightweight manual emergency stretcher.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Diagnostic -->
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/JZiki-bp-monitor.jpeg" alt="JZiki BP Monitor">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>JZiki BP Monitor</h3>
+                                <p>Digital blood pressure monitor for clinical use.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/bpmachine-armstyle.jpeg" alt="Arm Style BP Machine">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>BP Machine - Arm Style</h3>
+                                <p>Upper arm blood pressure monitor.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/contec-bpmachine.jpeg" alt="Contec BP Machine">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>Contec BP Machine</h3>
+                                <p>Professional Contec blood pressure monitor.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/sinocare-AXD-809-BPmachine-comeswithbattery-andcuff.jpeg" alt="Sinocare BP Machine">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>Sinocare AXD-809 BP Machine</h3>
+                                <p>Comes with battery and cuff included.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/finger-pulse-oximeter.jpeg" alt="Pulse Oximeter">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>Finger Pulse Oximeter</h3>
+                                <p>Portable SpO2 and heart rate monitor.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="diagnostic">
+                            <div class="catalog-card-image">
+                                <img src="images/products/infared-thermostart.jpeg" alt="Infrared Thermometer">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">DIAGNOSTIC</span>
+                                </div>
+                                <h3>Infrared Thermometer</h3>
+                                <p>Non-contact digital infrared thermometer.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Respiratory -->
+                        <div class="catalog-card" data-category="respiratory">
+                            <div class="catalog-card-image">
+                                <img src="images/products/5&10littre-oxygen-concentrator.jpeg" alt="Oxygen Concentrator">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">RESPIRATORY</span>
+                                </div>
+                                <h3>Oxygen Concentrator 5 & 10 Litre</h3>
+                                <p>Medical grade oxygen concentrator.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="respiratory">
+                            <div class="catalog-card-image">
+                                <img src="images/products/autoventilor-with-humidifer.jpeg" alt="Auto Ventilator">
+                                <span class="bulk-badge">Bulk Only</span>
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">RESPIRATORY</span>
+                                </div>
+                                <h3>Auto Ventilator with Humidifier</h3>
+                                <p>Automatic ventilator with built-in humidifier.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Bathroom Aids -->
+                        <div class="catalog-card" data-category="bathroom">
+                            <div class="catalog-card-image">
+                                <img src="images/products/shower-chair.jpeg" alt="Shower Chair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">BATHROOM AIDS</span>
+                                </div>
+                                <h3>Shower Chair</h3>
+                                <p>Waterproof shower chair with non-slip feet.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="bathroom">
+                            <div class="catalog-card-image">
+                                <img src="images/products/shower-stool.jpeg" alt="Shower Stool">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">BATHROOM AIDS</span>
+                                </div>
+                                <h3>Shower Stool</h3>
+                                <p>Compact height-adjustable shower stool.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="bathroom">
+                            <div class="catalog-card-image">
+                                <img src="images/products/commode-chair-50cmwide-46cmheigh.jpeg" alt="Commode Chair">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">BATHROOM AIDS</span>
+                                </div>
+                                <h3>Commode Chair</h3>
+                                <p>Sturdy commode chair 50cm wide, 46cm height.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="bathroom">
+                            <div class="catalog-card-image">
+                                <img src="images/products/padded-commode-chair-onwheels.jpeg" alt="Padded Commode on Wheels">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">BATHROOM AIDS</span>
+                                </div>
+                                <h3>Padded Commode Chair on Wheels</h3>
+                                <p>Mobile commode with padded seat.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Equipment -->
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/baby-incubator.jpeg" alt="Baby Incubator">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Baby Incubator</h3>
+                                <p>Neonatal baby incubator for infant care.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/cardiac-table.jpeg" alt="Cardiac Table">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Cardiac Table</h3>
+                                <p>Specialized table for cardiac procedures.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/exam-couch-easycleaning.jpeg" alt="Exam Couch">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Examination Couch</h3>
+                                <p>Easy-clean examination couch.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/led-operating-light-doublearm-ceilingmount.jpeg" alt="LED Operating Light Double Arm">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>LED Operating Light - Double Arm</h3>
+                                <p>Ceiling mount double arm surgical light.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/led-operatinglight-singlearm.jpeg" alt="LED Operating Light Single Arm">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>LED Operating Light - Single Arm</h3>
+                                <p>Single arm LED surgical operating light.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/footstool-25cmhigh-brass.jpeg" alt="Footstool">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Footstool - 25cm High</h3>
+                                <p>Brass footstool for medical use.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/single-strp-footstool.jpeg" alt="Single Step Footstool">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Single Step Footstool</h3>
+                                <p>Sturdy single step footstool.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-card" data-category="equipment">
+                            <div class="catalog-card-image">
+                                <img src="images/products/electric-knee-bracelet.jpeg" alt="Electric Knee Brace">
+                            </div>
+                            <div class="catalog-card-info">
+                                <div class="card-meta">
+                                    <span class="card-category">EQUIPMENT</span>
+                                </div>
+                                <h3>Electric Knee Brace</h3>
+                                <p>Therapeutic electric knee brace.</p>
+                                <div class="card-status"><i class="far fa-clock"></i> Ready for Dispatch</div>
+                                <a href="contact.html" class="card-quote-btn"><i class="fas fa-file-alt"></i> Request Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="catalog-load-more">
+                        <button class="load-more-btn" id="loadMoreBtn">Load More Products</button>
+                        <p class="showing-count">Showing <span id="showingCount">45</span> of 45 professional medical products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <div class="logo">
+                        <img src="images/home/logo.png" alt="Ubuntu Supply Solutions Logo" class="footer-logo-image">
+                        <span class="logo-text">Ubuntu Supply Solutions</span>
+                    </div>
+                    <p class="company-description">Certified medical equipment and surgical consumables to small surgery doctors, ensuring reliability, timely delivery and tailored solutions that meet every specific need.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>QUICK LINKS</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Product Catalog</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="about.html">About Ubuntu</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-contact">
+                    <h3>CONTACT US</h3>
+                    <div class="contact-info">
+                        <div class="contact-item"><span class="contact-icon">📞</span><span>+263 710 940 821 | +263 778 009 374</span></div>
+                        <div class="contact-item"><span class="contact-icon">✉</span><span>ubuntusupplysolutions@gmail.com</span></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/17fCihJ4TB/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/ubuntusupply8" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/zundekaubuntu?igsh=M2k3dmYwNXl0MGRw" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://vm.tiktok.com/ZS91MM8gyq7PJ-O5e7l/" class="social-link" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ubuntu Supply Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

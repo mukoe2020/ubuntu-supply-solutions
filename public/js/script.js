@@ -145,3 +145,162 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Product Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    if (filterBtns.length > 0 && productCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                // Filter products
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.4s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+});
+
+// Add fadeIn animation keyframes dynamically
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// ============================================
+// Product Catalog Functionality
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const catalogGrid = document.getElementById('catalogGrid');
+    if (!catalogGrid) return; // Only run on products page
+
+    const cards = Array.from(catalogGrid.querySelectorAll('.catalog-card'));
+    const searchInput = document.getElementById('catalogSearch');
+    const searchBtn = document.querySelector('.catalog-search-btn');
+    const popularTags = document.querySelectorAll('.popular-tag');
+    const categoryCheckboxes = document.querySelectorAll('.filter-checkbox input[data-category]');
+    const resultCountEl = document.getElementById('resultCount');
+    const searchTermEl = document.getElementById('searchTerm');
+    const showingCountEl = document.getElementById('showingCount');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    let visibleCount = 12; // Show 12 cards initially
+
+    function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        const checkedCategories = Array.from(categoryCheckboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.dataset.category);
+
+        let matchCount = 0;
+        cards.forEach(card => {
+            const category = card.dataset.category;
+            const text = card.textContent.toLowerCase();
+            const matchesSearch = !query || text.includes(query);
+            const matchesCategory = checkedCategories.length === 0 || checkedCategories.includes(category);
+
+            if (matchesSearch && matchesCategory) {
+                card.style.display = '';
+                matchCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update counts
+        if (resultCountEl) resultCountEl.textContent = matchCount;
+        if (searchTermEl) searchTermEl.textContent = query || 'All Supplies';
+        if (showingCountEl) showingCountEl.textContent = matchCount;
+
+        // Apply visible limit
+        applyVisibleLimit();
+    }
+
+    function applyVisibleLimit() {
+        let shown = 0;
+        cards.forEach(card => {
+            if (card.style.display !== 'none') {
+                shown++;
+                if (shown > visibleCount) {
+                    card.style.display = 'none';
+                }
+            }
+        });
+        // Toggle load more button
+        const totalVisible = cards.filter(c => {
+            const query = searchInput.value.toLowerCase().trim();
+            const checkedCategories = Array.from(categoryCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.dataset.category);
+            const text = c.textContent.toLowerCase();
+            const matchesSearch = !query || text.includes(query);
+            const matchesCategory = checkedCategories.length === 0 || checkedCategories.includes(c.dataset.category);
+            return matchesSearch && matchesCategory;
+        }).length;
+
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display = visibleCount >= totalVisible ? 'none' : 'inline-block';
+        }
+        if (showingCountEl) {
+            showingCountEl.textContent = Math.min(visibleCount, totalVisible);
+        }
+    }
+
+    // Search
+    if (searchBtn) searchBtn.addEventListener('click', filterCards);
+    if (searchInput) searchInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') filterCards();
+    });
+
+    // Popular tags
+    popularTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            searchInput.value = this.dataset.search;
+            visibleCount = 50;
+            filterCards();
+        });
+    });
+
+    // Category checkboxes
+    categoryCheckboxes.forEach(cb => {
+        cb.addEventListener('change', function() {
+            visibleCount = 12;
+            filterCards();
+        });
+    });
+
+    // Load more
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            visibleCount += 12;
+            filterCards();
+        });
+    }
+
+    // Initial display - show first 12
+    filterCards();
+});
