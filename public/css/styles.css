@@ -263,18 +263,15 @@ body {
     left: 0;
     width: 100%;
     opacity: 0;
-    transform: translateX(-300%);
-    transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.8s ease-in-out;
 }
 
 .text-slide.active {
     opacity: 1;
-    transform: translateX(0);
 }
 
 .text-slide:not(.active) {
     opacity: 0;
-    transform: translateX(-300%);
 }
 
 .typewriter-text {
@@ -808,6 +805,14 @@ body {
     font-weight: 700;
     margin-bottom: 0.6rem;
     line-height: 1.2;
+}
+
+.cta-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    color: white;
 }
 
 .text-content p {

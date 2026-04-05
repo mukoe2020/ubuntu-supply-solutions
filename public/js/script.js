@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 200);
     }
     
-    // Start alternating after 5 seconds to allow typewriter to complete, then every 8 seconds
+    // Start alternating after 5 seconds to allow typewriter to complete, then every 5 seconds
     if (textSlides.length > 1) {
         setTimeout(() => {
             console.log('Starting text alternation');
             switchText();
-            setInterval(switchText, 8000);
+            setInterval(switchText, 5000);
         }, 5000);
     }
 });
