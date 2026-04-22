@@ -1,0 +1,393 @@
+/* =============================================
+   COMMON STYLES - Shared Across All Pages
+   ============================================= */
+
+/* Reduce product card description size */
+.product-content p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: #444;
+}
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    background: #ffffff;
+}
+
+/* Color Variables */
+:root {
+    /* New Ubuntu Supply Solutions Color Palette */
+    --primary-blue: #2CA7C9;      /* Main brand color - backgrounds, shapes, brand identity */
+    --light-aqua: #6ED0E3;        /* Gradient areas, soft highlights */
+    --deep-teal: #1E7FA3;         /* Accents, circles, borders, text */
+    --warm-red: #E74C3C;          /* Warm accent color for design warmth */
+    --light-coral: #FF6B6B;       /* Light warm accent */
+    --white: #ffffff;             /* Text and clean space */
+    --light-grey: #E6EEF2;        /* Secondary background, soft areas */
+    --deep-charcoal: #2D3436;     /* Navbar and footer */
+    
+    /* Legacy variable mappings for backwards compatibility */
+    --dark-azure: #1E7FA3;        /* Maps to deep-teal */
+    --vivid-blue: #1E7FA3;        /* Maps to deep-teal */
+    --vivid-azure: #2CA7C9;       /* Maps to primary-blue */
+    --light-gray: #E6EEF2;        /* Maps to light-grey */
+    --dark-gray: #666;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--deep-charcoal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+     grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+/* Push logo to far left */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: auto;
+}
+
+/* Logo Styles */
+.logo-image {
+    height: 60px;
+     max-width: 150px;
+    object-fit: contain;
+}
+
+.logo-icon {
+    background-color: var(--vivid-azure);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--white);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--vivid-azure);
+    border-radius: 2px;
+}
+
+/* Header Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+/* Nav Get a Quote Button */
+.nav-quote-btn {
+    display: inline-block;
+    padding: 0.55rem 1.4rem;
+    background: #2D3436;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-quote-btn:hover {
+    background: #2D3436;
+    color: white !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(45, 52, 54, 0.3);
+}
+
+/* Mobile Menu Toggle */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: 0.3s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--deep-charcoal);
+    padding: 0.75rem 0 0.5rem;
+    color: white !important;
+}
+
+.footer * {
+    color: white;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.footer-section h3 {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+/* Company Info Section */
+.company-info .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-image {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: var(--vivid-azure);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.company-description {
+    color: white;
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.contact-icon {
+    font-size: 1rem;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--vivid-azure);
+    opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+    background: #2D3436;
+    color: white;
+    transform: translateY(-2px);
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(45, 52, 54, 0.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    color: white;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
