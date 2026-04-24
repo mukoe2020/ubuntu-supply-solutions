@@ -1,0 +1,222 @@
+/* =============================================
+   CERTIFICATE PROTECTION STYLES
+   For secure display of company registration certificates
+   ============================================= */
+
+/* Certificate Image Wrapper with Blur Protection */
+.credibility-certificate-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.credibility-certificate-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: white;
+    padding: 8px;
+}
+
+/* Protection Badge */
+.certificate-protection-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(44, 167, 201, 0.95);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(44, 167, 201, 0.25);
+    text-transform: uppercase;
+}
+
+.certificate-protection-badge::before {
+    content: '🔒';
+    font-size: 1rem;
+}
+
+/* Blur Overlay Container */
+.certificate-blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+/* Individual Blur Zones */
+.blur-zone {
+    position: absolute;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Soft gradient overlay for natural blur appearance */
+.blur-zone::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.35)
+    );
+    border-radius: 10px;
+}
+
+/* Blur Zone Positions (adjust these percentages based on your certificate layout) */
+
+/* Registration Number - Top Right */
+.blur-reg-number {
+    top: 8%;
+    right: 8%;
+    width: 20%;
+    height: 9%;
+}
+
+/* QR Code - Bottom Right */
+.blur-qr {
+    bottom: 10%;
+    right: 8%;
+    width: 18%;
+    height: 18%;
+}
+
+/* Signature - Bottom Left */
+.blur-signature {
+    bottom: 12%;
+    left: 8%;
+    width: 22%;
+    height: 14%;
+}
+
+/* Timestamp/Verification - Bottom Center */
+.blur-timestamp {
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45%;
+    height: 7%;
+}
+
+/* Hover effect for better UX (optional - provides visual feedback) */
+.blur-zone:hover {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .blur-reg-number {
+        top: 7%;
+        right: 6%;
+        width: 22%;
+        height: 10%;
+    }
+
+    .blur-qr {
+        bottom: 12%;
+        right: 6%;
+        width: 20%;
+        height: 20%;
+    }
+
+    .blur-signature {
+        bottom: 14%;
+        left: 6%;
+        width: 24%;
+        height: 16%;
+    }
+
+    .blur-timestamp {
+        bottom: 1%;
+        width: 50%;
+        height: 8%;
+    }
+
+    .certificate-protection-badge {
+        top: 16px;
+        left: 16px;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blur-reg-number {
+        top: 6%;
+        right: 5%;
+        width: 24%;
+        height: 10%;
+    }
+
+    .blur-qr {
+        bottom: 14%;
+        right: 5%;
+        width: 22%;
+        height: 22%;
+    }
+
+    .blur-signature {
+        bottom: 16%;
+        left: 5%;
+        width: 26%;
+        height: 16%;
+    }
+
+    .blur-timestamp {
+        bottom: 0%;
+        width: 55%;
+        height: 9%;
+    }
+
+    .certificate-protection-badge {
+        top: 12px;
+        left: 12px;
+        font-size: 0.7rem;
+        padding: 5px 10px;
+        gap: 4px;
+    }
+
+    .certificate-protection-badge::before {
+        font-size: 0.9rem;
+    }
+}
+
+/* High DPI / Retina Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .blur-zone {
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+}
+
+/* Print Media - Remove blur for printing if needed */
+@media print {
+    .blur-zone {
+        display: none;
+    }
+
+    .certificate-protection-badge {
+        display: none;
+    }
+}
