@@ -181,7 +181,6 @@
     background: linear-gradient(135deg, #f8fbfd 0%, #f0f8fc 100%);
     position: relative;
     overflow: hidden;
-    border-top: 1px solid rgba(44, 167, 201, 0.1);
 }
 
 .credibility-bg-accent {
