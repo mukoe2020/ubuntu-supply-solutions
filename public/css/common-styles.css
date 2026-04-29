@@ -311,6 +311,17 @@ body {
     font-size: 0.85rem;
 }
 
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
 .contact-icon {
     font-size: 1rem;
 }

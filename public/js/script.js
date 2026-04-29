@@ -304,3 +304,148 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial display - show first 12
     filterCards();
 });
+
+// ============================================
+// WhatsApp Integration Manager
+// Production-ready solution for WhatsApp inquiries
+// ============================================
+
+const WhatsAppManager = {
+    // Configuration
+    PHONE_NUMBER: '263778009374', // International format without +
+    BASE_URL: 'https://wa.me/',
+
+    // Message Templates
+    MESSAGES: {
+        general: 'Hi Ubuntu Supply Solutions, I would like to request a quote for your medical supplies. Please assist me.',
+        product: 'Hi Ubuntu Supply Solutions, I\'m interested in the {{PRODUCT}}. Could you please share pricing and availability?'
+    },
+
+    /**
+     * Build WhatsApp URL with encoded message
+     * @param {string} message - Message text
+     * @returns {string} WhatsApp URL
+     */
+    buildUrl: function(message) {
+        const encodedMessage = encodeURIComponent(message);
+        return `${this.BASE_URL}${this.PHONE_NUMBER}?text=${encodedMessage}`;
+    },
+
+    /**
+     * Open WhatsApp in new tab
+     * @param {string} url - WhatsApp URL
+     */
+    openChat: function(url) {
+        window.open(url, '_blank');
+    },
+
+    /**
+     * General inquiry message (used for CTAs, hero buttons, "Get a Quote")
+     */
+    sendGeneralInquiry: function() {
+        const url = this.buildUrl(this.MESSAGES.general);
+        this.openChat(url);
+    },
+
+    /**
+     * Product-specific inquiry message
+     * @param {string} productName - Name of the product
+     */
+    sendProductInquiry: function(productName) {
+        if (!productName) {
+            console.warn('Product name is required');
+            return;
+        }
+        const message = this.MESSAGES.product.replace('{{PRODUCT}}', productName);
+        const url = this.buildUrl(message);
+        this.openChat(url);
+    },
+
+    /**
+     * Custom message
+     * @param {string} customMessage - Custom message text
+     */
+    sendCustomMessage: function(customMessage) {
+        if (!customMessage) {
+            this.openChat(`${this.BASE_URL}${this.PHONE_NUMBER}`);
+            return;
+        }
+        const url = this.buildUrl(customMessage);
+        this.openChat(url);
+    },
+
+    /**
+     * Initialize data attribute event listeners
+     * Supports: data-whatsapp-type="general|product"
+     *           data-whatsapp-product="Product Name"
+     */
+    initDataAttributes: function() {
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-whatsapp-type]');
+            if (!target) return;
+
+            e.preventDefault();
+
+            const type = target.getAttribute('data-whatsapp-type');
+            const productName = target.getAttribute('data-whatsapp-product');
+
+            if (type === 'general') {
+                this.sendGeneralInquiry();
+            } else if (type === 'product' && productName) {
+                this.sendProductInquiry(productName);
+            }
+        });
+    }
+};
+
+// Initialize data attribute listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    WhatsAppManager.initDataAttributes();
+});
+
+// ============================================
+// Clean, Simple API Functions
+// ============================================
+
+/**
+ * Open WhatsApp with general inquiry message
+ * No product specified - used for CTAs and hero buttons
+ */
+function openWhatsAppGeneral() {
+    WhatsAppManager.sendGeneralInquiry();
+}
+
+/**
+ * Open WhatsApp with product-specific inquiry message
+ * @param {string} productName - The name of the product to inquire about
+ */
+function openWhatsAppProduct(productName) {
+    WhatsAppManager.sendProductInquiry(productName);
+}
+
+// ============================================
+// Backward compatibility functions
+// ============================================
+
+/**
+ * Open WhatsApp with a pre-filled quote request message
+ */
+function openWhatsAppQuote() {
+    WhatsAppManager.sendGeneralInquiry();
+}
+
+/**
+ * Open WhatsApp with a pre-filled product inquiry message
+ * @param {string} productName - The name of the product to inquire about
+ */
+function inquireProduct(productName) {
+    WhatsAppManager.sendProductInquiry(productName);
+}
+
+/**
+ * Open WhatsApp with a custom message
+ * @param {string} messageText - Custom message text
+ */
+function openWhatsAppChat(messageText = '') {
+    WhatsAppManager.sendCustomMessage(messageText);
+}

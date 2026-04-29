@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Integration Examples - Ubuntu Supply Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f6f8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #2D3436;
+            margin: 30px 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .example-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-title {
+            font-size: 1.3rem;
+            color: #2D3436;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2CA7C9;
+            padding-bottom: 10px;
+        }
+
+        /* Quote Request CTA */
+        .cta-quote {
+            background: linear-gradient(135deg, #2CA7C9, #20a39e);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-quote h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-quote p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #1ebd56;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn i {
+            font-size: 1.2rem;
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary {
+            background: #2D3436;
+            margin-left: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1d1f;
+        }
+
+        /* Product Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #2CA7C9, #20a39e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #2D3436;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: #2CA7C9;
+            margin: 15px 0 20px;
+            font-size: 1rem;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .product-actions .btn {
+            width: 100%;
+            justify-content: center;
+            font-size: 0.95rem;
+            padding: 0.7rem 1rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #2CA7C9;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #E8F4F8;
+            border-left: 4px solid #2CA7C9;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            color: #2D3436;
+        }
+
+        .note strong {
+            color: #2CA7C9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .cta-quote {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WhatsApp Integration Examples</h1>
+
+        <!-- Quote Request CTA -->
+        <div class="example-section">
+            <div class="cta-quote">
+                <h2>Need Medical Supplies?</h2>
+                <p>Get a personalized quote from our team in seconds</p>
+                <button class="btn" onclick="openWhatsAppQuote()">
+                    <i class="fab fa-whatsapp"></i>
+                    Get a Quote via WhatsApp
+                </button>
+                <button class="btn btn-secondary" onclick="openWhatsAppChat()">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat with Us
+                </button>
+            </div>
+
+            <div class="code-block">
+&lt;button onclick="openWhatsAppQuote()"&gt;
+    &lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;
+    Get a Quote
+&lt;/button&gt;
+            </div>
+        </div>
+
+        <!-- Product Inquiry Examples -->
+        <div class="example-section">
+            <div class="example-title">
+                <i class="fas fa-box"></i> Product Cards with WhatsApp Inquiry
+            </div>
+            <p>Click any product to inquire directly via WhatsApp</p>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E🩺%3C/text%3E%3C/svg%3E" alt="Blood Pressure Monitor">
+                    <div class="product-info">
+                        <h3>Digital Blood Pressure Monitor</h3>
+                        <p>Automatic BP monitor for clinics and hospitals. Easy to use with digital display.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('Digital Blood Pressure Monitor')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E💊%3C/text%3E%3C/svg%3E" alt="Surgical Gloves">
+                    <div class="product-info">
+                        <h3>Premium Surgical Gloves</h3>
+                        <p>Latex-free surgical gloves for maximum safety. Available in multiple sizes.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('Premium Surgical Gloves')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E🫁%3C/text%3E%3C/svg%3E" alt="Oxygen Concentrator">
+                    <div class="product-info">
+                        <h3>Portable Oxygen Concentrator</h3>
+                        <p>Energy-efficient oxygen concentrator for remote and off-grid locations.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('Portable Oxygen Concentrator')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E📊%3C/text%3E%3C/svg%3E" alt="ECG Machine">
+                    <div class="product-info">
+                        <h3>12-Lead ECG Machine</h3>
+                        <p>Advanced ECG recording system for diagnostic accuracy and quick results.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('12-Lead ECG Machine')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E🩹%3C/text%3E%3C/svg%3E" alt="Medical Dressings">
+                    <div class="product-info">
+                        <h3>Sterile Medical Dressings</h3>
+                        <p>Comprehensive range of sterile dressings for wound care and management.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('Sterile Medical Dressings')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle'%3E🌡️%3C/text%3E%3C/svg%3E" alt="Digital Thermometer">
+                    <div class="product-info">
+                        <h3>Digital Thermometer</h3>
+                        <p>Fast and accurate digital thermometer for quick temperature readings.</p>
+                        <div class="product-price">Price: On Request</div>
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="inquireProduct('Digital Thermometer')">
+                                <i class="fab fa-whatsapp"></i>
+                                Inquire via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+&lt;button onclick="inquireProduct('Product Name')"&gt;
+    &lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;
+    Inquire via WhatsApp
+&lt;/button&gt;
+            </div>
+        </div>
+
+        <!-- Implementation Guide -->
+        <div class="example-section">
+            <div class="example-title">
+                <i class="fas fa-code"></i> How to Implement
+            </div>
+
+            <h2>1. Quote Request Button</h2>
+            <div class="code-block">
+&lt;button onclick="openWhatsAppQuote()"&gt;
+    &lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;
+    Get a Quote
+&lt;/button&gt;
+            </div>
+
+            <h2>2. Product Inquiry Button</h2>
+            <div class="code-block">
+&lt;button onclick="inquireProduct('Surgical Gloves')"&gt;
+    &lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;
+    Inquire
+&lt;/button&gt;
+            </div>
+
+            <h2>3. Open WhatsApp with Custom Message</h2>
+            <div class="code-block">
+&lt;button onclick="openWhatsAppChat('I need urgent medical supplies')"&gt;
+    &lt;i class="fab fa-whatsapp"&gt;&lt;/i&gt;
+    Contact Us
+&lt;/button&gt;
+            </div>
+
+            <div class="note">
+                <strong>📌 Note:</strong> All functions are already defined in <code>public/js/script.js</code>. 
+                Just use the function names in your <code>onclick</code> attributes. 
+                The WhatsApp number is currently set to <strong>+263 778 009 374</strong>.
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="example-section">
+            <div class="example-title">
+                <i class="fas fa-check-circle"></i> Features
+            </div>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0;"><strong>✅ Pre-filled messages</strong> - Automatically insert product names and inquiries</li>
+                <li style="padding: 8px 0;"><strong>✅ URL-encoded messages</strong> - Special characters handled automatically</li>
+                <li style="padding: 8px 0;"><strong>✅ Opens in new tab</strong> - Better user experience</li>
+                <li style="padding: 8px 0;"><strong>✅ Mobile-responsive</strong> - Works on all devices</li>
+                <li style="padding: 8px 0;"><strong>✅ No backend needed</strong> - Pure client-side JavaScript</li>
+                <li style="padding: 8px 0;"><strong>✅ Easy to customize</strong> - Edit messages in script.js</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Reference to main script -->
+    <script src="script.js"></script>
+</body>
+</html>
