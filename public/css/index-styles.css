@@ -325,10 +325,23 @@
         min-height: 180px;
         width: 100%;
         text-align: center;
+        position: relative;
+    }
+
+    .text-slide {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .typewriter-text {
         text-align: center;
+        width: 100%;
     }
 
     .text-line {
@@ -426,10 +439,23 @@
         min-height: 160px;
         width: 100%;
         text-align: center;
+        position: relative;
+    }
+
+    .text-slide {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .typewriter-text {
         text-align: center;
+        width: 100%;
     }
 
     .text-line {
