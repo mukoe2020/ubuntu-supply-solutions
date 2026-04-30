@@ -286,11 +286,10 @@
     .hero-image {
         height: 100vh;
         min-height: 100vh;
-        background-size: contain;
-        background-position: center;
+        background-size: cover;
+        background-position: 40% center;
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-color: #1f2b2d;
         width: 100%;
     }
 
@@ -404,11 +403,10 @@
     .hero-image {
         height: 100vh;
         min-height: 100vh;
-        background-size: contain;
-        background-position: center;
+        background-size: cover;
+        background-position: 40% center;
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-color: #1f2b2d;
         width: 100%;
     }
 
