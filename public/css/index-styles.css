@@ -119,10 +119,12 @@
     color: #000000;
     opacity: 0;
     transform: translateY(20px);
-    white-space: nowrap;
+    white-space: normal;
     overflow: visible;
-    width: max-content;
-    max-width: none;
+    width: 100%;
+    max-width: 90vw;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .text-slide.active .text-line:nth-child(1) {
@@ -809,12 +811,61 @@
 }
 
 @media (max-width: 480px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .hero-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .hero-text-overlay {
         padding: 1rem;
+        max-width: 95%;
+        width: 100%;
+    }
+
+    .alternating-text {
+        min-height: auto;
+        width: 100%;
+    }
+
+    .text-line {
+        font-size: 1.5rem;
+        max-width: 90vw;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .typewriter-text {
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .hero-btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-headline h1 {
+        font-size: 1.5rem;
     }
 
     .badges {
         gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .badge {
@@ -822,7 +873,7 @@
     }
 
     .section-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .view-all-link {
@@ -845,11 +896,11 @@
     }
     
     .experience-overlay h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .content-section h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .download-cta-content {
@@ -859,11 +910,12 @@
     }
     
     .text-content h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .catalog-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .download-btn,
@@ -874,12 +926,53 @@
 }
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .hero-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .hero-content {
         padding: 1rem;
+        overflow-x: hidden;
     }
     
     .hero-text-overlay {
-        max-width: 90%;
+        max-width: 95%;
         padding: 1.5rem;
+        width: 100%;
+    }
+
+    .alternating-text {
+        width: 100%;
+    }
+
+    .text-line {
+        font-size: 1.8rem;
+        max-width: 90vw;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .hero-headline h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-btn {
+        width: 100%;
     }
 }
