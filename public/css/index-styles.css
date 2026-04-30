@@ -47,7 +47,7 @@
 /* Hero Text Overlay - Desktop First */
 .hero-text-overlay {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -217,6 +217,10 @@
     }
 
     .hero-text-overlay {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         padding: 3rem 2rem;
         gap: 2rem;
         width: 92%;
@@ -295,7 +299,7 @@
 
     .hero-text-overlay {
         position: absolute;
-        top: 50%;
+        top: 56%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 92% !important;
@@ -412,7 +416,7 @@
 
     .hero-text-overlay {
         position: absolute;
-        top: 50%;
+        top: 56%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 94% !important;
