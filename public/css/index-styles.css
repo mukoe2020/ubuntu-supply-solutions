@@ -119,12 +119,10 @@
     color: #000000;
     opacity: 0;
     transform: translateY(20px);
-    white-space: normal;
+    white-space: nowrap;
     overflow: visible;
-    width: 100%;
+    width: max-content;
     max-width: 90vw;
-    word-wrap: break-word;
-    word-break: break-word;
 }
 
 .text-slide.active .text-line:nth-child(1) {
@@ -836,8 +834,10 @@
     .text-line {
         font-size: 1.5rem;
         max-width: 90vw;
+        white-space: normal;
         word-break: break-word;
         overflow-wrap: break-word;
+        width: 100%;
     }
 
     .typewriter-text {
